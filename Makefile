@@ -22,7 +22,7 @@ DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 _OBJ = tcp_connection.o base_network.o cryptor.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
-_MAIN = cryptor_test client_receive client_send cmd_send connections eserver lclient lserver tc_rec tc_send sync_connections
+_MAIN = cryptor_test client_receive client_send connections eserver lclient lserver tc_rec tc_send sync_connections
 MAIN = $(patsubst %,$(ODIR)/%,$(_MAIN))
 
 all: dir $(MAIN)
@@ -30,7 +30,7 @@ all: dir $(MAIN)
 dir:
 	mkdir -p $(ODIR)
 ifeq "$(wildcard $(LDIR)/boost_1_55_0.tar.bz2 )" ""
-	cd $(LDIR) && wget http://cznic.dl.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2
+	cd $(LDIR) && wget http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.tar.bz2
 	cd $(LDIR) && tar xvf boost_1_55_0.tar.bz2
 	cd $(LDIR)/boost_1_55_0/ && ./bootstrap.sh --with-libraries=system --with-libraries=thread --prefix=../../
 	cd $(LDIR)/boost_1_55_0/ && ./b2 install runtime-link=static link=static

@@ -1,6 +1,6 @@
 # Declaration of variables
 CC = g++
-CC_FLAGS = -w
+CC_FLAGS = -w -D__STDC_CONSTANT_MACROS
 
 # File names
 EXEC = libed25519.a
