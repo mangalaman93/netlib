@@ -7,23 +7,23 @@
 #include "base_network.h"
 
 void receive_handler(std::string address, unsigned port,
-		const std::vector<unsigned char>& data, uint64_t request_id) {
+                     const std::vector<unsigned char>& data, uint64_t request_id) {
     std::cout<<"received data from: "<<address<<":"<<port;
     std::cout<<" and data is: \"";
-	for(unsigned i=0; i<data.size(); i++) {
-		std::cout<<data[i];
-	}
-	std::cout<<"\""<<std::endl;
+    for(unsigned i=0; i<data.size(); i++) {
+        std::cout<<data[i];
+    }
+    std::cout<<"\""<<std::endl;
 }
 
 int main() {
-	std::string s = "This is test data!";
-	const std::vector<unsigned char> data(s.begin(), s.end());
-	std::string address = "127.0.0.1";
-	int port = 5001;
+    std::string s = "This is test data!";
+    const std::vector<unsigned char> data(s.begin(), s.end());
+    std::string address = "127.0.0.1";
+    int port = 5001;
 
-	BaseNetwork net(port+1, receive_handler);
-	net.send(address, port, data);
-	net.send(address, port, data);
-	net.join();
+    BaseNetwork net(port+1, receive_handler);
+    net.send(address, port, data);
+    net.send(address, port, data);
+    net.join();
 }

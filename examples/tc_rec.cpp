@@ -2,7 +2,7 @@
 #include "tcp_connection.h"
 
 void receive_handler(std::string address, unsigned port,
-        const std::vector<unsigned char>& data, uint64_t request_id) {
+                     const std::vector<unsigned char>& data, uint64_t request_id) {
     std::cout<<"received data from: "<<address<<":"<<port;
     std::cout<<" and data is: \"";
     std::cout.write((const char*)data.data(), data.size());
@@ -18,7 +18,7 @@ int main() {
     tcon->read(8080, receive_handler);
 
 #if defined _WIN32 || defined WIN32 || defined OS_WIN64 || defined _WIN64 || defined WIN64 || defined WINNT
-	Sleep(5000);
+    Sleep(5000);
 #else
 #include <unistd.h>
     sleep(5);

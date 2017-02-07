@@ -15,19 +15,21 @@ using namespace std;
 
 class Cryptor
 {
-	bool flag;
-	vector<unsigned char> public_key;
-	vector<unsigned char> private_key;
-	vector<unsigned char> seed;
-	CryptoPP::CTR_Mode<CryptoPP::AES>::Encryption encryptor;
-	CryptoPP::CTR_Mode<CryptoPP::AES>::Decryption decryptor;
-	byte iv[CryptoPP::AES::BLOCKSIZE];
+    bool flag;
+    vector<unsigned char> public_key;
+    vector<unsigned char> private_key;
+    vector<unsigned char> seed;
+    CryptoPP::CTR_Mode<CryptoPP::AES>::Encryption encryptor;
+    CryptoPP::CTR_Mode<CryptoPP::AES>::Decryption decryptor;
+    byte iv[CryptoPP::AES::BLOCKSIZE];
 
-  public:
-	Cryptor();
-	~Cryptor() { ;}
-	void generate_shared_secret(const vector<unsigned char>& other_public_key);
-	const vector<unsigned char> get_public_key() { return public_key;}
-	void encrypt(vector<unsigned char>& data, unsigned offset=0);
-	void decrypt(vector<unsigned char>& data);
+public:
+    Cryptor();
+    ~Cryptor() { ;}
+    void generate_shared_secret(const vector<unsigned char>& other_public_key);
+    const vector<unsigned char> get_public_key() {
+        return public_key;
+    }
+    void encrypt(vector<unsigned char>& data, unsigned offset=0);
+    void decrypt(vector<unsigned char>& data);
 };

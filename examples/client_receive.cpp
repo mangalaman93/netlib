@@ -6,18 +6,18 @@
 #include "base_network.h"
 
 void receive_handler(std::string address, unsigned port,
-		const std::vector<unsigned char>& data, uint64_t request_id) {
+                     const std::vector<unsigned char>& data, uint64_t request_id) {
     std::cout<<"received data from: "<<address<<":"<<port;
     std::cout<<" and data is: \"";
-	for(unsigned i=0; i<data.size(); i++) {
-		std::cout<<data[i];
-	}
-	std::cout<<"\""<<std::endl;
+    for(unsigned i=0; i<data.size(); i++) {
+        std::cout<<data[i];
+    }
+    std::cout<<"\""<<std::endl;
 }
 
 int main() {
     BaseNetwork net(5001, receive_handler);
-	net.join();
+    net.join();
 
- 	return 0;
+    return 0;
 }
