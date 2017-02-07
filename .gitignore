@@ -1,0 +1,43 @@
+# Mac OS X
+*.DS_Store
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.out
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+bin/*
+
+# Backup files
+*~.nib
+\#*#
+.#*
+*.swp
+*.un~
+
+# lib files
+lib/*
+include/boost/*
+include/cryptopp/*
+include/ed25519/*
+
+# windows files
+project/Debug/*
+*.sln
+*.suo
+*.filters
+*.user
+*.*sdf
+.gitattributes
+
+# Erlang compied files
+*.beam
